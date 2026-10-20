@@ -1,60 +1,36 @@
-# RetroVideo: Proyecto Intermodular (1º DAW)
+# 📼 RetroVideo - Videoclub Management System
 
-Bienvenido al repositorio oficial de **RetroVideo**, el proyecto final intermodular que integra los conocimientos adquiridos durante el primer curso del ciclo superior de Desarrollo de Aplicaciones Web en el IES Severo Ochoa.
+**RetroVideo** es mi proyecto final intermodular de 1º de DAW (IES Severo Ochoa). Es una aplicación diseñada para gestionar un videoclub, permitiendo administrar el catálogo de películas y videojuegos, gestionar los socios y llevar el registro de los alquileres.
 
-Este proyecto es un **MVP (Producto Mínimo Viable)** diseñado para modernizar la gestión de un videoclub, permitiendo la administración de películas, videojuegos, socios y la trazabilidad de alquileres.
+El objetivo de este proyecto es integrar todos los conocimientos adquiridos durante el curso en un único MVP (Producto Mínimo Viable), separando claramente la lógica de negocio, la persistencia de datos y la interfaz visual.
 
----
+## 🛠️ Stack Tecnológico y Estructura
 
-## Arquitectura del Proyecto
+El repositorio está dividido en carpetas para separar las distintas responsabilidades del proyecto:
 
-El proyecto está diseñado siguiendo una arquitectura limpia y separada por capas para asegurar su escalabilidad en futuros desarrollos:
+- **`/backend` (Java 21):** Contiene toda la lógica. Utiliza el patrón DAO para centralizar el acceso a datos y JPA (con Hibernate) para conectar con la base de datos mediante ORM.
+- **`/database` (MySQL/MariaDB):** Aquí se encuentra el script `videoclub.sql` con la estructura de tablas y los datos de prueba.
+- **`/frontend` (HTML5 & CSS3):** Prototipo visual de la interfaz web. Está maquetado de forma *responsive* utilizando CSS Grid y variables nativas. 
+- **`/docs/api` (OpenAPI 3.0):** Documentación técnica (`openapi.yaml`) que define los *endpoints* y la estructura de una futura API REST, dejando preparada la base para conectar el frontend y el backend de forma asíncrona.
 
-* **`backend/` (Capa Lógica y Persistencia - UP12)**
-    * Desarrollado en Java 21.
-    * Implementa el patrón DAO para centralizar el acceso a datos.
-    * Utiliza JPA (Jakarta Persistence API) con Hibernate ORM para la conexión a la base de datos.
-* **`database/` (Capa de Datos - UP5)**
-    * Contiene el script `videoclub.sql`.
-    * Base de datos relacional MySQL (MariaDB) que garantiza la integridad referencial y evita la pérdida o corrupción de datos.
-* **`frontend/` (Capa de Presentación Visual - UP6)**
-    * Prototipo visual (Mockup) desarrollado en HTML5 y CSS3.
-    * Diseño responsive utilizando CSS Grid y variables nativas para un mantenimiento ágil.
-    * Incluye scripts de prueba que demuestran la interactividad planificada.
-* **`docs/api/` (Diseño de API REST - UP9)**
-    * Documentación técnica en formato OpenAPI 3.0 (`openapi.yaml`).
-    * Define los endpoints, esquemas de datos y métodos HTTP (GET, POST) necesarios para que, en un futuro (v2.0), el Frontend y el Backend se comuniquen de forma asíncrona.
-
----
-
-## Instalación y Ejecución
-
-Para ejecutar la parte funcional (Backend + Base de Datos) de este proyecto en tu entorno local:
+## 🚀 Cómo ejecutarlo en local
 
 ### 1. Base de Datos
-1. Asegúrate de tener instalado **XAMPP** (o un entorno similar con MySQL/MariaDB).
-2. Inicia el servicio de MySQL.
-3. Importa el archivo `database/videoclub.sql` en tu gestor (ej. phpMyAdmin) para crear la base de datos y cargar los datos de prueba.
+1. Levanta tu servidor MySQL (por ejemplo, con XAMPP).
+2. Importa el archivo `database/videoclub.sql` en tu gestor (phpMyAdmin, DBeaver, etc.) para crear la base de datos y cargar la información inicial.
 
-### 2. Backend (Java)
-1. Abre la carpeta `backend/` como proyecto en **IntelliJ IDEA** o Eclipse.
-2. Asegúrate de que las dependencias de Maven (indicadas en el `pom.xml`) se descarguen correctamente.
-3. Ejecuta la clase `app.Main`. El sistema se conectará a MySQL y desplegará la interfaz de consola.
+### 2. Backend
+1. Abre la carpeta `backend/` como un proyecto en tu IDE (IntelliJ IDEA o Eclipse).
+2. Deja que Maven resuelva y descargue las dependencias del archivo `pom.xml`.
+3. Ejecuta la clase `app.Main`. La aplicación se conectará a MySQL y lanzará la interfaz de consola.
 
-### 3. Frontend (Prototipo)
-* Simplemente abre el archivo `frontend/index.html` en tu navegador web de preferencia para visualizar la propuesta de diseño para la versión web.
+### 3. Frontend
+Simplemente abre el archivo `frontend/index.html` en tu navegador para ver la propuesta de maquetación de la versión web.
 
----
-
-## Trabajo en Equipo (Simulación de Escalado)
-
-Si este proyecto se desarrollara en un equipo de múltiples personas, el flujo de trabajo propuesto sería:
-
-1.  **Repositorios Centralizados:** Uso de esta Organización en GitHub para mantener el código fragmentado y organizado (Backend, Frontend).
-2.  **Ramas (GitFlow):** Se bloquearía la rama `main`. Todo el desarrollo se haría en ramas de características (`feature/nueva-tabla`, `feature/diseño-nav`) que luego se integrarían mediante *Pull Requests*.
-3.  **Roles Claros:** Asignación de desarrolladores a Frontend (Consumo de API y maquetación) y Backend (Lógica Java y diseño SQL).
+## 🔄 Metodología y Git
+Aunque es un proyecto académico, el desarrollo se ha planteado simulando un entorno de trabajo colaborativo real:
+- Estructura de repositorios modular.
+- Control de versiones siguiendo un flujo basado en ramas para nuevas funcionalidades (`feature/...`) e integración mediante *Pull Requests* para proteger la rama `main`.
 
 ---
-
-## Autor
-* **Adrián Martínez** - Alumno de 1º DAW - IES Severo Ochoa (2025/2026).
+**Autor:** Adrián Martínez - 1º DAW (Curso 2025/2026) - IES Severo Ochoa.
